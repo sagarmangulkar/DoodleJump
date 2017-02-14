@@ -15,6 +15,8 @@
 		470EA1631E53AE4500D5DC42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470EA1611E53AE4500D5DC42 /* LaunchScreen.storyboard */; };
 		470EA16E1E53AE4500D5DC42 /* DoodleJumpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470EA16D1E53AE4500D5DC42 /* DoodleJumpTests.m */; };
 		470EA1791E53AE4500D5DC42 /* DoodleJumpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470EA1781E53AE4500D5DC42 /* DoodleJumpUITests.m */; };
+		470EA1891E53B25000D5DC42 /* DoodleJumpStartPage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */; };
+		470EA18B1E53BD3200D5DC42 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 470EA18A1E53BD3200D5DC42 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		470EA1741E53AE4500D5DC42 /* DoodleJumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoodleJumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		470EA1781E53AE4500D5DC42 /* DoodleJumpUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DoodleJumpUITests.m; sourceTree = "<group>"; };
 		470EA17A1E53AE4500D5DC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DoodleJumpStartPage.jpg; sourceTree = SOURCE_ROOT; };
+		470EA18A1E53BD3200D5DC42 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +110,11 @@
 				470EA1591E53AE4500D5DC42 /* ViewController.h */,
 				470EA15A1E53AE4500D5DC42 /* ViewController.m */,
 				470EA15C1E53AE4500D5DC42 /* Main.storyboard */,
+				470EA18A1E53BD3200D5DC42 /* background.png */,
 				470EA15F1E53AE4500D5DC42 /* Assets.xcassets */,
 				470EA1611E53AE4500D5DC42 /* LaunchScreen.storyboard */,
 				470EA1641E53AE4500D5DC42 /* Info.plist */,
+				470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */,
 				470EA1531E53AE4500D5DC42 /* Supporting Files */,
 			);
 			path = DoodleJump;
@@ -243,6 +249,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470EA1891E53B25000D5DC42 /* DoodleJumpStartPage.jpg in Resources */,
+				470EA18B1E53BD3200D5DC42 /* background.png in Resources */,
 				470EA1631E53AE4500D5DC42 /* LaunchScreen.storyboard in Resources */,
 				470EA1601E53AE4500D5DC42 /* Assets.xcassets in Resources */,
 				470EA15E1E53AE4500D5DC42 /* Main.storyboard in Resources */,
