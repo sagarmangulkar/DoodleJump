@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="308.5" y="401.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Play View Controller-->
         <scene sceneID="mVE-mg-qX4">
             <objects>
-                <viewController id="ojx-LB-vUT" sceneMemberID="viewController">
+                <viewController id="ojx-LB-vUT" customClass="PlayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d4m-Ni-VV9"/>
                         <viewControllerLayoutGuide type="bottom" id="ZNu-0z-Ft9"/>
@@ -53,39 +53,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Od5-tt-bhD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1b-dt-jhp">
-                                <rect key="frame" x="57" y="65" width="260" height="73"/>
+                                <rect key="frame" x="57" y="99" width="260" height="73"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOG-WN-J6i">
-                                <rect key="frame" x="134" y="258" width="107" height="69"/>
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Exit"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="N5A-iG-4C1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFZ-Mf-l83">
-                                <rect key="frame" x="108" y="363" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-VK-IkI">
+                                <rect key="frame" x="72" y="384" width="39" height="30"/>
+                                <state key="normal" title="Jump"/>
+                                <connections>
+                                    <action selector="buttonTest:" destination="ojx-LB-vUT" eventType="touchUpInside" id="MVI-bD-lKU"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Od5-tt-bhD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
+                                <rect key="frame" x="144" y="358" width="63" height="72"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="buttonTest" destination="j5s-VK-IkI" id="heu-5d-uLR"/>
+                        <outlet property="imageDoodler" destination="T5O-XY-7yR" id="jcI-6F-CoO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERv-Fu-mp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706.5" y="401.5"/>
+            <point key="canvasLocation" x="714.5" y="401.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="DoodleJumpStartPage.jpg" width="650" height="975"/>
+        <image name="Doodler.png" width="225" height="225"/>
         <image name="background.png" width="532" height="850"/>
     </resources>
 </document>

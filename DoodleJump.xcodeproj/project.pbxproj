@@ -17,6 +17,8 @@
 		470EA1791E53AE4500D5DC42 /* DoodleJumpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470EA1781E53AE4500D5DC42 /* DoodleJumpUITests.m */; };
 		470EA1891E53B25000D5DC42 /* DoodleJumpStartPage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */; };
 		470EA18B1E53BD3200D5DC42 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 470EA18A1E53BD3200D5DC42 /* background.png */; };
+		47E516371E57A73200DBD044 /* Doodler.png in Resources */ = {isa = PBXBuildFile; fileRef = 47E516361E57A73200DBD044 /* Doodler.png */; };
+		47E5163A1E57AA2100DBD044 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E516391E57AA2100DBD044 /* PlayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		470EA17A1E53AE4500D5DC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DoodleJumpStartPage.jpg; sourceTree = SOURCE_ROOT; };
 		470EA18A1E53BD3200D5DC42 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = SOURCE_ROOT; };
+		47E516361E57A73200DBD044 /* Doodler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doodler.png; sourceTree = SOURCE_ROOT; };
+		47E516381E57AA2100DBD044 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		47E516391E57AA2100DBD044 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,11 +115,14 @@
 				470EA1591E53AE4500D5DC42 /* ViewController.h */,
 				470EA15A1E53AE4500D5DC42 /* ViewController.m */,
 				470EA15C1E53AE4500D5DC42 /* Main.storyboard */,
+				47E516361E57A73200DBD044 /* Doodler.png */,
 				470EA18A1E53BD3200D5DC42 /* background.png */,
 				470EA15F1E53AE4500D5DC42 /* Assets.xcassets */,
 				470EA1611E53AE4500D5DC42 /* LaunchScreen.storyboard */,
 				470EA1641E53AE4500D5DC42 /* Info.plist */,
 				470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */,
+				47E516381E57AA2100DBD044 /* PlayViewController.h */,
+				47E516391E57AA2100DBD044 /* PlayViewController.m */,
 				470EA1531E53AE4500D5DC42 /* Supporting Files */,
 			);
 			path = DoodleJump;
@@ -254,6 +262,7 @@
 				470EA1631E53AE4500D5DC42 /* LaunchScreen.storyboard in Resources */,
 				470EA1601E53AE4500D5DC42 /* Assets.xcassets in Resources */,
 				470EA15E1E53AE4500D5DC42 /* Main.storyboard in Resources */,
+				47E516371E57A73200DBD044 /* Doodler.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E5163A1E57AA2100DBD044 /* PlayViewController.m in Sources */,
 				470EA15B1E53AE4500D5DC42 /* ViewController.m in Sources */,
 				470EA1581E53AE4500D5DC42 /* AppDelegate.m in Sources */,
 				470EA1551E53AE4500D5DC42 /* main.m in Sources */,
@@ -506,6 +516,7 @@
 				470EA17F1E53AE4500D5DC42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		470EA1801E53AE4500D5DC42 /* Build configuration list for PBXNativeTarget "DoodleJumpTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +525,7 @@
 				470EA1821E53AE4500D5DC42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		470EA1831E53AE4500D5DC42 /* Build configuration list for PBXNativeTarget "DoodleJumpUITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +534,7 @@
 				470EA1851E53AE4500D5DC42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
