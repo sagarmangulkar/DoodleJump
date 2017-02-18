@@ -11,5 +11,6 @@
 @interface PlayViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *buttonTest;
 @property (strong, nonatomic) IBOutlet UIImageView *imageDoodler;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
 
 @end

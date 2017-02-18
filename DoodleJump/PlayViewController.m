@@ -10,29 +10,53 @@
 
 @implementation PlayViewController
 
-- (IBAction)buttonTest:(id)sender {
-    int jumpedPositionY;
-    [UIView beginAnimations:NULL context:NULL];
-    [UIView setAnimationRepeatAutoreverses:YES];
-    [UIView setAnimationDuration:1];
-    CGRect imageFrame = _imageDoodler.frame;
-//    jumpedPositionY = imageFrame.origin.y;
-    imageFrame.origin.y -= 200;
-    NSLog(@"%f",imageFrame.origin.y);
 
-    _imageDoodler.frame = imageFrame;
-    [UIView commitAnimations];
-//    imageFrame = _imageDoodler.frame;
-//    imageFrame.origin.y += 200;
-//    _imageDoodler.frame = imageFrame;
-    NSLog(@"%f",imageFrame.origin.y);
+- (void)viewDidLoad{
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(jump:)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+-(void)jump:timer{
+    //simple jump
+    [UIView animateWithDuration:1.0 animations:^{
+        CGRect imageFrame = self.imageDoodler.frame;
+        imageFrame.origin.y -= 200;
+ //       imageFrame.origin.x = _slider.value * 100;
+        self.imageDoodler.frame = imageFrame;
+    }
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:1.0 animations:^{
+                             CGRect imageFrame = self.imageDoodler.frame;
+                             imageFrame.origin.y += 200;
+                             self.imageDoodler.frame = imageFrame;
+                         }];
+                     }
+     ];
     
+    //moving left-right
+    NSLog(@"Slider value: @%f", _slider.value);
+}
+
+- (IBAction)buttonTest:(id)sender {
     
-//    [UIView animateWithDuration:2.0 animations:^{ _imageDoodler.center = CGPointMake(100, 150);}];
-//       [UIView setAnimationRepeatAutoreverses:YES];
-//
-//    [UIView commitAnimations];
-//    _imageDoodler.center = CGPointMake(200, 100);
+  //  [self jump];
+    
+//    [UIView animateWithDuration:1.0 animations:^{
+//        CGRect imageFrame = self.imageDoodler.frame;
+//        imageFrame.origin.y -= 200;
+//        self.imageDoodler.frame = imageFrame;
+//    }
+//                     completion:^(BOOL finished){
+//                         [UIView animateWithDuration:1.0 animations:^{
+//                             CGRect imageFrame = self.imageDoodler.frame;
+//                             imageFrame.origin.y += 200;
+//                             self.imageDoodler.frame = imageFrame;
+//                         }];
+//                     }
+//     ];
 }
 
 @end

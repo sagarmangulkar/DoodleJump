@@ -77,8 +77,11 @@
                                     <action selector="buttonTest:" destination="ojx-LB-vUT" eventType="touchUpInside" id="MVI-bD-lKU"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xmq-oM-dn2">
+                                <rect key="frame" x="-2" y="600" width="379" height="31"/>
+                            </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
-                                <rect key="frame" x="144" y="358" width="63" height="72"/>
+                                <rect key="frame" x="157" y="477" width="48" height="54"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,6 +90,7 @@
                     <connections>
                         <outlet property="buttonTest" destination="j5s-VK-IkI" id="heu-5d-uLR"/>
                         <outlet property="imageDoodler" destination="T5O-XY-7yR" id="jcI-6F-CoO"/>
+                        <outlet property="slider" destination="Xmq-oM-dn2" id="UMV-F0-Ans"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERv-Fu-mp0" userLabel="First Responder" sceneMemberID="firstResponder"/>
