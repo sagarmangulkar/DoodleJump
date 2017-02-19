@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface PlayViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIButton *buttonTest;
 @property (strong, nonatomic) IBOutlet UIImageView *imageDoodler;
 @property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed1;
+@property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed2;
+@property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed3;
+@property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed4;
+@property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed5;
 
 @end

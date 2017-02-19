@@ -56,12 +56,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Od5-tt-bhD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1b-dt-jhp">
-                                <rect key="frame" x="57" y="99" width="260" height="73"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-Q9-Tbg">
+                                <rect key="frame" x="117" y="137" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-hK-yYN">
+                                <rect key="frame" x="244" y="417" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MAe-SW-9wt">
+                                <rect key="frame" x="85" y="557" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-H4-xqz">
+                                <rect key="frame" x="46" y="350" width="75" height="25"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOG-WN-J6i">
                                 <rect key="frame" x="0.0" y="0.0" width="64" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
@@ -70,26 +76,26 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="N5A-iG-4C1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-VK-IkI">
-                                <rect key="frame" x="72" y="384" width="39" height="30"/>
-                                <state key="normal" title="Jump"/>
-                                <connections>
-                                    <action selector="buttonTest:" destination="ojx-LB-vUT" eventType="touchUpInside" id="MVI-bD-lKU"/>
-                                </connections>
-                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xmq-oM-dn2">
-                                <rect key="frame" x="-2" y="600" width="379" height="31"/>
+                                <rect key="frame" x="-2" y="637" width="379" height="31"/>
                             </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
-                                <rect key="frame" x="157" y="477" width="48" height="54"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h5d-Si-kfN">
+                                <rect key="frame" x="185" y="42" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
+                                <rect key="frame" x="100" y="489" width="60" height="60"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="buttonTest" destination="j5s-VK-IkI" id="heu-5d-uLR"/>
                         <outlet property="imageDoodler" destination="T5O-XY-7yR" id="jcI-6F-CoO"/>
+                        <outlet property="platformSimpleRed1" destination="h5d-Si-kfN" id="O2E-Zc-Uge"/>
+                        <outlet property="platformSimpleRed2" destination="eHQ-Q9-Tbg" id="zQL-Kp-mdw"/>
+                        <outlet property="platformSimpleRed3" destination="xXR-H4-xqz" id="3eb-c5-aRM"/>
+                        <outlet property="platformSimpleRed4" destination="FU2-hK-yYN" id="tNy-R7-yHi"/>
+                        <outlet property="platformSimpleRed5" destination="MAe-SW-9wt" id="5fg-UH-4CL"/>
                         <outlet property="slider" destination="Xmq-oM-dn2" id="UMV-F0-Ans"/>
                     </connections>
                 </viewController>
@@ -100,7 +106,8 @@
     </scenes>
     <resources>
         <image name="DoodleJumpStartPage.jpg" width="650" height="975"/>
-        <image name="Doodler.png" width="225" height="225"/>
+        <image name="Doodler copy.png" width="202" height="197"/>
         <image name="background.png" width="532" height="850"/>
+        <image name="platform_simple_red.jpg" width="66" height="19"/>
     </resources>
 </document>

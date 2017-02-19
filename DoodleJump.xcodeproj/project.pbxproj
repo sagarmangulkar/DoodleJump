@@ -17,6 +17,8 @@
 		470EA1791E53AE4500D5DC42 /* DoodleJumpUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 470EA1781E53AE4500D5DC42 /* DoodleJumpUITests.m */; };
 		470EA1891E53B25000D5DC42 /* DoodleJumpStartPage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */; };
 		470EA18B1E53BD3200D5DC42 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 470EA18A1E53BD3200D5DC42 /* background.png */; };
+		473AC1E11E58F4A10046FB84 /* platform_simple_red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 473AC1E01E58F4A10046FB84 /* platform_simple_red.jpg */; };
+		473AC1E41E59069D0046FB84 /* Doodler copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 473AC1E31E59069D0046FB84 /* Doodler copy.png */; };
 		47E516371E57A73200DBD044 /* Doodler.png in Resources */ = {isa = PBXBuildFile; fileRef = 47E516361E57A73200DBD044 /* Doodler.png */; };
 		47E5163A1E57AA2100DBD044 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E516391E57AA2100DBD044 /* PlayViewController.m */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		470EA17A1E53AE4500D5DC42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DoodleJumpStartPage.jpg; sourceTree = SOURCE_ROOT; };
 		470EA18A1E53BD3200D5DC42 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = SOURCE_ROOT; };
+		473AC1E01E58F4A10046FB84 /* platform_simple_red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = platform_simple_red.jpg; sourceTree = SOURCE_ROOT; };
+		473AC1E31E59069D0046FB84 /* Doodler copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Doodler copy.png"; sourceTree = SOURCE_ROOT; };
 		47E516361E57A73200DBD044 /* Doodler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doodler.png; sourceTree = SOURCE_ROOT; };
 		47E516381E57AA2100DBD044 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		47E516391E57AA2100DBD044 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
@@ -115,14 +119,12 @@
 				470EA1591E53AE4500D5DC42 /* ViewController.h */,
 				470EA15A1E53AE4500D5DC42 /* ViewController.m */,
 				470EA15C1E53AE4500D5DC42 /* Main.storyboard */,
-				47E516361E57A73200DBD044 /* Doodler.png */,
-				470EA18A1E53BD3200D5DC42 /* background.png */,
 				470EA15F1E53AE4500D5DC42 /* Assets.xcassets */,
 				470EA1611E53AE4500D5DC42 /* LaunchScreen.storyboard */,
 				470EA1641E53AE4500D5DC42 /* Info.plist */,
-				470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */,
 				47E516381E57AA2100DBD044 /* PlayViewController.h */,
 				47E516391E57AA2100DBD044 /* PlayViewController.m */,
+				473AC1E21E58F4DF0046FB84 /* Images */,
 				470EA1531E53AE4500D5DC42 /* Supporting Files */,
 			);
 			path = DoodleJump;
@@ -152,6 +154,18 @@
 				470EA17A1E53AE4500D5DC42 /* Info.plist */,
 			);
 			path = DoodleJumpUITests;
+			sourceTree = "<group>";
+		};
+		473AC1E21E58F4DF0046FB84 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				470EA18A1E53BD3200D5DC42 /* background.png */,
+				473AC1E31E59069D0046FB84 /* Doodler copy.png */,
+				473AC1E01E58F4A10046FB84 /* platform_simple_red.jpg */,
+				47E516361E57A73200DBD044 /* Doodler.png */,
+				470EA1881E53B25000D5DC42 /* DoodleJumpStartPage.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +273,12 @@
 			files = (
 				470EA1891E53B25000D5DC42 /* DoodleJumpStartPage.jpg in Resources */,
 				470EA18B1E53BD3200D5DC42 /* background.png in Resources */,
+				473AC1E11E58F4A10046FB84 /* platform_simple_red.jpg in Resources */,
 				470EA1631E53AE4500D5DC42 /* LaunchScreen.storyboard in Resources */,
 				470EA1601E53AE4500D5DC42 /* Assets.xcassets in Resources */,
 				470EA15E1E53AE4500D5DC42 /* Main.storyboard in Resources */,
 				47E516371E57A73200DBD044 /* Doodler.png in Resources */,
+				473AC1E41E59069D0046FB84 /* Doodler copy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
