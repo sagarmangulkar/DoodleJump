@@ -8,11 +8,12 @@
 
 #import "PlayViewController.h"
 
+int counterForHidingDoodler = 0;
 @implementation PlayViewController
 
 
 - (void)viewDidLoad{
-    [NSTimer scheduledTimerWithTimeInterval:2.0
+    [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(jump:)
                                    userInfo:nil
@@ -37,19 +38,69 @@
     
     int widthPlatform = framePlatformSimpleRed1.size.width;
     int heightPlatform = framePlatformSimpleRed1.size.height;
-    [UIView animateWithDuration:1.0 animations:^{
+    
+    
+    NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
+    
+    [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:nil animations:^{
         CGRect frameDoodler = self.imageDoodler.frame;
         if (frameDoodler.origin.y > 0) {
+            [_imageDoodler setHidden:NO];
+            [_platformSimpleRed5 setHidden:NO];
+            [_platformSimpleRed4 setHidden:NO];
+            [_platformSimpleRed3 setHidden:NO];
+            [_platformSimpleRed2 setHidden:NO];
+            [_platformSimpleRed1 setHidden:NO];
+
             frameDoodler.origin.y -= 200;
         }
-        if (frameDoodler.origin.x >= 0 && frameDoodler.origin.x <= 327) {
-            frameDoodler.origin.x = _slider.value * 327;
+        else if(frameDoodler.origin.y < 0){
+            frameDoodler.origin.y = 607;
+            [_imageDoodler setHidden:YES];
+            [UIView animateWithDuration:0 animations:^{
+                [_platformSimpleRed5 setHidden:YES];
+                [_platformSimpleRed4 setHidden:YES];
+                [_platformSimpleRed3 setHidden:YES];
+                [_platformSimpleRed2 setHidden:YES];
+                [_platformSimpleRed1 setHidden:YES];
+
+                CGRect framePlatformSimpleRed4 = self.platformSimpleRed4.frame;
+                CGRect framePlatformSimpleRed3 = self.platformSimpleRed3.frame;
+                CGRect framePlatformSimpleRed2 = self.platformSimpleRed2.frame;
+                CGRect framePlatformSimpleRed1 = self.platformSimpleRed1.frame;
+                
+                if (framePlatformSimpleRed4.origin.x > 0 || framePlatformSimpleRed4.origin.x < (327 - widthPlatform)) {
+                    framePlatformSimpleRed4.origin.x = arc4random_uniform(327 - widthPlatform);
+                }
+
+                if (framePlatformSimpleRed3.origin.x > 0 || framePlatformSimpleRed3.origin.x < (327 - widthPlatform)) {
+                    framePlatformSimpleRed3.origin.x = arc4random_uniform(327 - widthPlatform);
+                }
+
+                if (framePlatformSimpleRed2.origin.x > 0 || framePlatformSimpleRed2.origin.x < (327 - widthPlatform)) {
+                    framePlatformSimpleRed2.origin.x = arc4random_uniform(327 - widthPlatform);
+                }
+
+                if (framePlatformSimpleRed1.origin.x > 0 || framePlatformSimpleRed1.origin.x < (327 - widthPlatform)) {
+                    framePlatformSimpleRed1.origin.x = arc4random_uniform(327 - widthPlatform);
+                }
+
+
+                _platformSimpleRed4.frame = framePlatformSimpleRed4;
+                _platformSimpleRed3.frame = framePlatformSimpleRed3;
+                _platformSimpleRed2.frame = framePlatformSimpleRed2;
+                _platformSimpleRed1.frame = framePlatformSimpleRed1;
+
+            }];
         }
+//        if (frameDoodler.origin.x >= 0 && frameDoodler.origin.x <= 327) {
+//            frameDoodler.origin.x = _slider.value * 327;
+//        }
    //     NSLog(@"Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
         self.imageDoodler.frame = frameDoodler;
     }
                      completion:^(BOOL finished){
-                         [UIView animateWithDuration:1.0 animations:^{
+                         [UIView animateWithDuration:0.5 animations:^{
                              CGRect frameDoodler = self.imageDoodler.frame;
             //                 CGRect framePlatformSimpleRed1 = self.platformSimplwRed1.frame;
 
@@ -120,11 +171,51 @@
 }
 
 -(void)moveLeftRight:timer{
+    if (counterForHidingDoodler == 5) {
+        [_imageDoodler setHidden:NO];
+        counterForHidingDoodler = 0;
+    }
     [UIView animateWithDuration:0.5 animations:^{
         CGRect imageFrame = self.imageDoodler.frame;
         if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
             imageFrame.origin.x = _slider.value * 327;
         }
+        NSLog(@"Slider out: @%f, X: @%f", _slider.value, imageFrame.origin.x);
+
+//        if (163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity) >= 0 && 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity) <= 327) {
+//            if (_slider.value == 0.5) {
+//                imageFrame.origin.x = 163.5;
+//            }
+//            else if(_slider.value < 0.5) {
+//                imageFrame.origin.x = 163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity);
+//                NSLog(@"Slider Left: @%f, X: @%f", _slider.value, imageFrame.origin.x);
+//            }
+//            else if(_slider.value > 0.5) {
+//                imageFrame.origin.x = 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity);
+//                NSLog(@"Slider Right: @%f,X: @%f", _slider.value, imageFrame.origin.x);
+//
+//            }
+//        }
+
+//        if (imageFrame.origin.x < 0) {
+//            imageFrame.origin.x = 300;
+//            [_imageDoodler setHidden:YES];
+//        }
+//        self.imageDoodler.frame = imageFrame;
+//        if ([_imageDoodler isHidden]) {
+//            counterForHidingDoodler++;
+//        }
+
+        
+        
+//         if (imageFrame.origin.x >= 275) {
+//            NSLog(@"Greater than right.........");
+//            imageFrame.origin.x = 0 * 327;
+//        }
+//        else if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
+//            imageFrame.origin.x = _slider.value * 327;
+//        }
+
 //        NSLog(@"MoveRightLeft- Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
         self.imageDoodler.frame = imageFrame;
     }];
