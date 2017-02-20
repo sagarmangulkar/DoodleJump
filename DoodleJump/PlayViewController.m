@@ -29,7 +29,29 @@ int counterLevel = 0;
                                    selector:@selector(moveLeftRight:)
                                    userInfo:nil
                                     repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:3.0
+//                                     target:self
+//                                   selector:@selector(platformMove:)
+//                                   userInfo:nil
+//                                    repeats:YES];
 }
+
+//-(void)platformMove:timer{
+//    [UIView animateWithDuration:1.0 animations:^{
+//                CGRect framePlatform = self.platformSimpleRed2.frame;
+//                framePlatform.origin.x = 0;
+//         //       imageFrame.origin.x = _slider.value * 100;
+//                self.platformSimpleRed2.frame = framePlatform;
+//            }
+//                          completion:^(BOOL finished){
+//                                  [UIView animateWithDuration:1.0 animations:^{
+//                                          CGRect framePlatform = self.platformSimpleRed2.frame;
+//                                          framePlatform.origin.x = 327 - framePlatform.size.width;
+//                                          self.platformSimpleRed2.frame = framePlatform;
+//                                      }];
+//                              }
+//          ];
+//}
 
 -(void)jump:timer{
     //simple jump
@@ -46,7 +68,7 @@ int counterLevel = 0;
 //    int heightPlatform = framePlatformSimpleRed1.size.height;
     
     
-    NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
+   // NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
     
     [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:nil animations:^{
         CGRect frameDoodler = self.imageDoodler.frame;
@@ -100,6 +122,7 @@ int counterLevel = 0;
                     framePlatformSimpleRed1.origin.x = 225;
                 }
                 else{
+                    
                     if (framePlatformSimpleRed4.origin.x > 0 || framePlatformSimpleRed4.origin.x < (327 - widthPlatform)) {
                         framePlatformSimpleRed4.origin.x = arc4random_uniform(327 - widthPlatform);
                     }
@@ -130,7 +153,7 @@ int counterLevel = 0;
                          [UIView animateWithDuration:0.5 animations:^{
                              CGRect frameDoodler = self.imageDoodler.frame;
             //                 CGRect framePlatformSimpleRed1 = self.platformSimplwRed1.frame;
-
+                             
                              if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed1.origin.x) &&
                                  (frameDoodler.origin.x < framePlatformSimpleRed1.origin.x + widthPlatform - 10) &&
                                  (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed1.origin.y)) {
@@ -155,7 +178,7 @@ int counterLevel = 0;
                                  (frameDoodler.origin.x < framePlatformSimpleRed5.origin.x + widthPlatform - 10) &&
                                       (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed5.origin.y)) {
                                  frameDoodler.origin.y = framePlatformSimpleRed5.origin.y - 55;
-                                 NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                // NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                              }
                              else{
                                  while (frameDoodler.origin.y < 575) {
@@ -183,11 +206,11 @@ int counterLevel = 0;
                                               (frameDoodler.origin.x < framePlatformSimpleRed5.origin.x + widthPlatform - 10) &&
                                               (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed5.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed5.origin.y - 55;
-                                         NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                   //      NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                                      }
                                      else{
                                          frameDoodler.origin.y += 300;
-                                         NSLog(@"Falling- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                      //   NSLog(@"Falling- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                                      }
                                  }
                              }
@@ -207,7 +230,7 @@ int counterLevel = 0;
         if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
             imageFrame.origin.x = _slider.value * 327;
         }
-        NSLog(@"Slider out: @%f, X: @%f", _slider.value, imageFrame.origin.x);
+      //  NSLog(@"Slider out: @%f, X: @%f", _slider.value, imageFrame.origin.x);
 
 //        if (163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity) >= 0 && 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity) <= 327) {
 //            if (_slider.value == 0.5) {

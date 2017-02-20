@@ -101,13 +101,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-hK-yYN">
                                 <rect key="frame" x="239" y="444" width="75" height="25"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-H4-xqz">
-                                <rect key="frame" x="56" y="321" width="75" height="25"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
-                                <rect key="frame" x="173" y="530" width="60" height="60"/>
-                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBd-eD-vQd">
                                 <rect key="frame" x="80" y="243" width="245" height="76"/>
                                 <color key="backgroundColor" red="0.6947403724747474" green="0.14815495590896161" blue="0.10514853303905915" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,6 +108,13 @@
                                 <color key="textColor" red="0.97912720959595956" green="0.95124193092855136" blue="0.13435585069051481" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-H4-xqz">
+                                <rect key="frame" x="56" y="321" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
+                                <rect key="frame" x="173" y="530" width="60" height="60"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

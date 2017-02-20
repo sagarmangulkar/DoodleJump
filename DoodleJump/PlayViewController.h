@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelGameOver;
 @property (strong, nonatomic) IBOutlet UIButton *buttonPlayAgain;
 @property (strong, nonatomic) IBOutlet UILabel *labelWin;
+@property (strong, nonatomic) IBOutlet UIImageView *imageMonster1;
 
 @end
