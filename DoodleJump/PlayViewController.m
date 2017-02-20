@@ -18,7 +18,7 @@ int counterLevel = 0;
     [_labelGameOver setHidden:YES];
     [_buttonPlayAgain setHidden:YES];
     [_labelWin setHidden:YES];
-    
+    counterLevel = 0;
     [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(jump:)
