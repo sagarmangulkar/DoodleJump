@@ -16,5 +16,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed3;
 @property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed4;
 @property (strong, nonatomic) IBOutlet UIImageView *platformSimpleRed5;
+@property (strong, nonatomic) IBOutlet UILabel *labelGameOver;
+@property (strong, nonatomic) IBOutlet UIButton *buttonPlayAgain;
+@property (strong, nonatomic) IBOutlet UILabel *labelWin;
 
 @end

@@ -56,22 +56,38 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Od5-tt-bhD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You Win the Game...!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHZ-nA-4GB">
+                                <rect key="frame" x="4" y="191" width="367" height="57"/>
+                                <color key="backgroundColor" red="0.30382975334611206" green="0.69474037249999998" blue="0.29538426963851477" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1c-3Y-Cd9">
+                                <rect key="frame" x="89" y="455" width="212" height="67"/>
+                                <color key="backgroundColor" red="0.45975585937391739" green="0.32770897730210108" blue="0.71431107949999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="0.97904607291275614" green="1" blue="0.78368661931948636" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.89841958290000001" green="1" blue="0.77735681109999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ojx-LB-vUT" kind="presentation" id="E3L-an-y6W"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-Q9-Tbg">
-                                <rect key="frame" x="140" y="202" width="75" height="25"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-hK-yYN">
-                                <rect key="frame" x="244" y="417" width="75" height="25"/>
+                                <rect key="frame" x="150" y="170" width="75" height="25"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="MAe-SW-9wt">
-                                <rect key="frame" x="127" y="598" width="75" height="25"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-H4-xqz">
-                                <rect key="frame" x="46" y="350" width="75" height="25"/>
+                                <rect key="frame" x="150" y="598" width="75" height="25"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOG-WN-J6i">
                                 <rect key="frame" x="0.0" y="0.0" width="64" height="41"/>
+                                <color key="backgroundColor" red="0.45975585940000002" green="0.32770897729999998" blue="0.71431107949999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Exit"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleColor" red="0.97904607290000001" green="1" blue="0.78368661930000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="N5A-iG-4C1"/>
                                 </connections>
@@ -82,16 +98,32 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="h5d-Si-kfN">
                                 <rect key="frame" x="185" y="42" width="75" height="25"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBd-eD-vQd">
+                                <rect key="frame" x="80" y="248" width="245" height="76"/>
+                                <color key="backgroundColor" red="0.6947403724747474" green="0.14815495590896161" blue="0.10514853303905915" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <color key="textColor" red="0.97912720959595956" green="0.95124193092855136" blue="0.13435585069051481" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Doodler copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="T5O-XY-7yR">
-                                <rect key="frame" x="140" y="530" width="60" height="60"/>
+                                <rect key="frame" x="173" y="530" width="60" height="60"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FU2-hK-yYN">
+                                <rect key="frame" x="239" y="444" width="75" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platform_simple_red.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xXR-H4-xqz">
+                                <rect key="frame" x="56" y="321" width="75" height="25"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="buttonPlayAgain" destination="y1c-3Y-Cd9" id="w2Z-ZA-Tew"/>
                         <outlet property="imageDoodler" destination="T5O-XY-7yR" id="jcI-6F-CoO"/>
+                        <outlet property="labelGameOver" destination="uBd-eD-vQd" id="MDJ-Kx-ls1"/>
+                        <outlet property="labelWin" destination="CHZ-nA-4GB" id="LpU-sN-mIV"/>
                         <outlet property="platformSimpleRed1" destination="h5d-Si-kfN" id="O2E-Zc-Uge"/>
                         <outlet property="platformSimpleRed2" destination="eHQ-Q9-Tbg" id="zQL-Kp-mdw"/>
                         <outlet property="platformSimpleRed3" destination="xXR-H4-xqz" id="3eb-c5-aRM"/>
@@ -111,4 +143,7 @@
         <image name="background.png" width="532" height="850"/>
         <image name="platform_simple_red.jpg" width="66" height="19"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jD2-RG-zfs"/>
+    </inferredMetricsTieBreakers>
 </document>

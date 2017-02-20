@@ -9,10 +9,16 @@
 #import "PlayViewController.h"
 
 int counterForHidingDoodler = 0;
+int counterLevel = 0;
 @implementation PlayViewController
 
 
 - (void)viewDidLoad{
+    
+    [_labelGameOver setHidden:YES];
+    [_buttonPlayAgain setHidden:YES];
+    [_labelWin setHidden:YES];
+    
     [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(jump:)
@@ -37,7 +43,7 @@ int counterForHidingDoodler = 0;
     CGRect framePlatformSimpleRed5 = self.platformSimpleRed5.frame;
     
     int widthPlatform = framePlatformSimpleRed1.size.width;
-    int heightPlatform = framePlatformSimpleRed1.size.height;
+//    int heightPlatform = framePlatformSimpleRed1.size.height;
     
     
     NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
@@ -51,10 +57,20 @@ int counterForHidingDoodler = 0;
             [_platformSimpleRed3 setHidden:NO];
             [_platformSimpleRed2 setHidden:NO];
             [_platformSimpleRed1 setHidden:NO];
-
+            
+            //check for Game Over when Doodler falls
+            if (frameDoodler.origin.y > 607) {
+                [_labelGameOver setHidden:NO];
+                [_buttonPlayAgain setHidden:NO];
+                [_imageDoodler setHidden:YES];
+            }
+            
+            
             frameDoodler.origin.y -= 200;
         }
+        //screen level change
         else if(frameDoodler.origin.y < 0){
+            counterLevel++;
             frameDoodler.origin.y = 607;
             [_imageDoodler setHidden:YES];
             [UIView animateWithDuration:0 animations:^{
@@ -69,23 +85,34 @@ int counterForHidingDoodler = 0;
                 CGRect framePlatformSimpleRed2 = self.platformSimpleRed2.frame;
                 CGRect framePlatformSimpleRed1 = self.platformSimpleRed1.frame;
                 
-                if (framePlatformSimpleRed4.origin.x > 0 || framePlatformSimpleRed4.origin.x < (327 - widthPlatform)) {
-                    framePlatformSimpleRed4.origin.x = arc4random_uniform(327 - widthPlatform);
+                //winning check
+                if (counterLevel >= 3) {
+                    [_labelWin setHidden:NO];
+                    [_buttonPlayAgain setHidden:NO];
+                    framePlatformSimpleRed4.origin.y = 600;
+                    framePlatformSimpleRed3.origin.y = 600;
+                    framePlatformSimpleRed2.origin.y = 600;
+                    framePlatformSimpleRed1.origin.y = 600;
+                    
+                    framePlatformSimpleRed4.origin.x = 0;
+                    framePlatformSimpleRed3.origin.x = 75;
+                    framePlatformSimpleRed2.origin.x = 300;
+                    framePlatformSimpleRed1.origin.x = 225;
                 }
-
-                if (framePlatformSimpleRed3.origin.x > 0 || framePlatformSimpleRed3.origin.x < (327 - widthPlatform)) {
-                    framePlatformSimpleRed3.origin.x = arc4random_uniform(327 - widthPlatform);
+                else{
+                    if (framePlatformSimpleRed4.origin.x > 0 || framePlatformSimpleRed4.origin.x < (327 - widthPlatform)) {
+                        framePlatformSimpleRed4.origin.x = arc4random_uniform(327 - widthPlatform);
+                    }
+                    if (framePlatformSimpleRed3.origin.x > 0 || framePlatformSimpleRed3.origin.x < (327 - widthPlatform)) {
+                        framePlatformSimpleRed3.origin.x = arc4random_uniform(327 - widthPlatform);
+                    }
+                    if (framePlatformSimpleRed2.origin.x > 0 || framePlatformSimpleRed2.origin.x < (327 - widthPlatform)) {
+                        framePlatformSimpleRed2.origin.x = arc4random_uniform(327 - widthPlatform);
+                    }
+                    if (framePlatformSimpleRed1.origin.x > 0 || framePlatformSimpleRed1.origin.x < (327 - widthPlatform)) {
+                        framePlatformSimpleRed1.origin.x = arc4random_uniform(327 - widthPlatform);
+                    }
                 }
-
-                if (framePlatformSimpleRed2.origin.x > 0 || framePlatformSimpleRed2.origin.x < (327 - widthPlatform)) {
-                    framePlatformSimpleRed2.origin.x = arc4random_uniform(327 - widthPlatform);
-                }
-
-                if (framePlatformSimpleRed1.origin.x > 0 || framePlatformSimpleRed1.origin.x < (327 - widthPlatform)) {
-                    framePlatformSimpleRed1.origin.x = arc4random_uniform(327 - widthPlatform);
-                }
-
-
                 _platformSimpleRed4.frame = framePlatformSimpleRed4;
                 _platformSimpleRed3.frame = framePlatformSimpleRed3;
                 _platformSimpleRed2.frame = framePlatformSimpleRed2;
