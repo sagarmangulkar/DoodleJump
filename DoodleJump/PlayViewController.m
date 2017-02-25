@@ -224,7 +224,7 @@ BOOL isPaused = NO;
                 CGRect framePlatformSimpleRed1 = self.platformSimpleRed1.frame;
                 
                 //winning check
-                if (counterLevel >= 5) {
+                if (counterLevel >= 3) {
                     [_labelWin setHidden:NO];
                     [_buttonPlayAgain setHidden:NO];
                     [_labelYourScore setHidden:NO];
