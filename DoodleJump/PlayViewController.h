@@ -25,5 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelDisplayScore;
 @property (strong, nonatomic) IBOutlet UILabel *labelMaxScore;
 @property (retain, nonatomic) NSString *maxScore;
+@property (strong, nonatomic) IBOutlet UIButton *buttonPause;
+@property (strong, nonatomic) IBOutlet UIButton *buttonResume;
 
 @end
