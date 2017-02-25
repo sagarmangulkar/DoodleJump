@@ -8,9 +8,17 @@
 
 #import "PlayViewController.h"
 
-int counterForHidingDoodler = 0;
+NSString *maxScore = @"0";
+
+//int counterForHidingDoodler = 0;
 int counterLevel = 0;
 @implementation PlayViewController
+//score handler
+BOOL isIncrementablePlatform1 = YES;
+BOOL isIncrementablePlatform2 = YES;
+BOOL isIncrementablePlatform3 = YES;
+BOOL isIncrementablePlatform4 = YES;
+BOOL isIncrementablePlatform5 = YES;
 
 
 - (void)viewDidLoad{
@@ -18,7 +26,21 @@ int counterLevel = 0;
     [_labelGameOver setHidden:YES];
     [_buttonPlayAgain setHidden:YES];
     [_labelWin setHidden:YES];
+    [_labelYourScore setHidden:YES];
+    [_labelDisplayScore setHidden:YES];
     counterLevel = 0;
+    //score handler
+    isIncrementablePlatform1 = YES;
+    isIncrementablePlatform2 = YES;
+    isIncrementablePlatform3 = YES;
+    isIncrementablePlatform4 = YES;
+    isIncrementablePlatform5 = YES;
+    
+    //max score handler
+    _labelMaxScore.text = maxScore;
+    
+    //score handling
+    _labelScore.text = @"0";
     [NSTimer scheduledTimerWithTimeInterval:1.5
                                      target:self
                                    selector:@selector(jump:)
@@ -29,11 +51,18 @@ int counterLevel = 0;
                                    selector:@selector(moveLeftRight:)
                                    userInfo:nil
                                     repeats:YES];
-//    [NSTimer scheduledTimerWithTimeInterval:3.0
-//                                     target:self
-//                                   selector:@selector(platformMove:)
-//                                   userInfo:nil
-//                                    repeats:YES];
+    //    [NSTimer scheduledTimerWithTimeInterval:15.0
+    //                                     target:self
+    //                                   selector:@selector(score:)
+    //                                   userInfo:nil
+    //                                    repeats:YES];
+    
+    
+    //    [NSTimer scheduledTimerWithTimeInterval:3.0
+    //                                     target:self
+    //                                   selector:@selector(platformMove:)
+    //                                   userInfo:nil
+    //                                    repeats:YES];
 }
 
 //-(void)platformMove:timer{
@@ -53,6 +82,11 @@ int counterLevel = 0;
 //          ];
 //}
 
+//-(void)score:timer{
+//    //score handler
+//       _labelScore.text = [NSString stringWithFormat:@"%ld", (long)counterLevel];
+//}
+
 -(void)jump:timer{
     //simple jump
     CGRect frameDoodler = self.imageDoodler.frame;
@@ -65,26 +99,46 @@ int counterLevel = 0;
     CGRect framePlatformSimpleRed5 = self.platformSimpleRed5.frame;
     
     int widthPlatform = framePlatformSimpleRed1.size.width;
-//    int heightPlatform = framePlatformSimpleRed1.size.height;
+    //    int heightPlatform = framePlatformSimpleRed1.size.height;
     
     
-   // NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
+    // NSLog(@"Doodler Y: @%f",frameDoodler.origin.y);
+    
+    //-----------Max score logic--------------
+    if ([_labelScore.text integerValue] > [maxScore integerValue]) {
+        maxScore = _labelScore.text;
+        _labelMaxScore.text = maxScore;
+    }
     
     [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:nil animations:^{
         CGRect frameDoodler = self.imageDoodler.frame;
         if (frameDoodler.origin.y > 0) {
-            [_imageDoodler setHidden:NO];
+            if ([_labelGameOver isHidden]) {
+                [_imageDoodler setHidden:NO];
+            }
             [_platformSimpleRed5 setHidden:NO];
             [_platformSimpleRed4 setHidden:NO];
             [_platformSimpleRed3 setHidden:NO];
             [_platformSimpleRed2 setHidden:NO];
             [_platformSimpleRed1 setHidden:NO];
             
+
+            
             //check for Game Over when Doodler falls
             if (frameDoodler.origin.y > 607) {
                 [_labelGameOver setHidden:NO];
                 [_buttonPlayAgain setHidden:NO];
                 [_imageDoodler setHidden:YES];
+                [_labelYourScore setHidden:NO];
+                _labelDisplayScore.text = _labelScore.text;
+                [_labelDisplayScore setHidden:NO];
+                
+//                //score handler
+//                isIncrementablePlatform1 = NO;
+//                isIncrementablePlatform2 = NO;
+//                isIncrementablePlatform3 = NO;
+//                isIncrementablePlatform4 = NO;
+//                isIncrementablePlatform5 = NO;
             }
             
             
@@ -93,6 +147,13 @@ int counterLevel = 0;
         //screen level change
         else if(frameDoodler.origin.y < 0){
             counterLevel++;
+            //score handler
+            isIncrementablePlatform1 = YES;
+            isIncrementablePlatform2 = YES;
+            isIncrementablePlatform3 = YES;
+            isIncrementablePlatform4 = YES;
+            isIncrementablePlatform5 = YES;
+//            _labelScore.text = [NSString stringWithFormat:@"%ld", (long)counterLevel*10];
             frameDoodler.origin.y = 607;
             [_imageDoodler setHidden:YES];
             [UIView animateWithDuration:0 animations:^{
@@ -101,7 +162,7 @@ int counterLevel = 0;
                 [_platformSimpleRed3 setHidden:YES];
                 [_platformSimpleRed2 setHidden:YES];
                 [_platformSimpleRed1 setHidden:YES];
-
+                
                 CGRect framePlatformSimpleRed4 = self.platformSimpleRed4.frame;
                 CGRect framePlatformSimpleRed3 = self.platformSimpleRed3.frame;
                 CGRect framePlatformSimpleRed2 = self.platformSimpleRed2.frame;
@@ -111,10 +172,21 @@ int counterLevel = 0;
                 if (counterLevel >= 3) {
                     [_labelWin setHidden:NO];
                     [_buttonPlayAgain setHidden:NO];
-                    framePlatformSimpleRed4.origin.y = 600;
-                    framePlatformSimpleRed3.origin.y = 600;
-                    framePlatformSimpleRed2.origin.y = 600;
-                    framePlatformSimpleRed1.origin.y = 600;
+                    [_labelYourScore setHidden:NO];
+                    _labelDisplayScore.text = _labelScore.text;
+                    [_labelDisplayScore setHidden:NO];
+                    
+                    //score handler
+                    isIncrementablePlatform1 = NO;
+                    isIncrementablePlatform2 = NO;
+                    isIncrementablePlatform3 = NO;
+                    isIncrementablePlatform4 = NO;
+                    isIncrementablePlatform5 = NO;
+                    
+                    framePlatformSimpleRed4.origin.y = 590;
+                    framePlatformSimpleRed3.origin.y = 590;
+                    framePlatformSimpleRed2.origin.y = 590;
+                    framePlatformSimpleRed1.origin.y = 590;
                     
                     framePlatformSimpleRed4.origin.x = 0;
                     framePlatformSimpleRed3.origin.x = 75;
@@ -140,45 +212,67 @@ int counterLevel = 0;
                 _platformSimpleRed3.frame = framePlatformSimpleRed3;
                 _platformSimpleRed2.frame = framePlatformSimpleRed2;
                 _platformSimpleRed1.frame = framePlatformSimpleRed1;
-
+                
             }];
+            //        _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
         }
-//        if (frameDoodler.origin.x >= 0 && frameDoodler.origin.x <= 327) {
-//            frameDoodler.origin.x = _slider.value * 327;
-//        }
-   //     NSLog(@"Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
+        //        if (frameDoodler.origin.x >= 0 && frameDoodler.origin.x <= 327) {
+        //            frameDoodler.origin.x = _slider.value * 327;
+        //        }
+        //     NSLog(@"Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
         self.imageDoodler.frame = frameDoodler;
     }
                      completion:^(BOOL finished){
                          [UIView animateWithDuration:0.5 animations:^{
                              CGRect frameDoodler = self.imageDoodler.frame;
-            //                 CGRect framePlatformSimpleRed1 = self.platformSimplwRed1.frame;
+                             //                 CGRect framePlatformSimpleRed1 = self.platformSimplwRed1.frame;
                              
                              if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed1.origin.x) &&
                                  (frameDoodler.origin.x < framePlatformSimpleRed1.origin.x + widthPlatform - 10) &&
                                  (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed1.origin.y)) {
-                             frameDoodler.origin.y = framePlatformSimpleRed1.origin.y - 55;
+                                 frameDoodler.origin.y = framePlatformSimpleRed1.origin.y - 55;
+                                 if (isIncrementablePlatform1 && [_labelWin isHidden]) {
+                                     _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                     isIncrementablePlatform1 = NO;
+                                 }
                              }
                              else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed2.origin.x) &&
-                                 (frameDoodler.origin.x < framePlatformSimpleRed2.origin.x + widthPlatform - 10) &&
+                                      (frameDoodler.origin.x < framePlatformSimpleRed2.origin.x + widthPlatform - 10) &&
                                       (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed2.origin.y)) {
                                  frameDoodler.origin.y = framePlatformSimpleRed2.origin.y - 55;
+                                 if (isIncrementablePlatform2 && [_labelWin isHidden]) {
+                                     _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                     isIncrementablePlatform2 = NO;
+                                 }
                              }
                              else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed3.origin.x) &&
-                                 (frameDoodler.origin.x < framePlatformSimpleRed3.origin.x + widthPlatform - 10) &&
+                                      (frameDoodler.origin.x < framePlatformSimpleRed3.origin.x + widthPlatform - 10) &&
                                       (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed3.origin.y)) {
                                  frameDoodler.origin.y = framePlatformSimpleRed3.origin.y - 55;
+                                 if (isIncrementablePlatform3 && [_labelWin isHidden]) {
+                                     _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                     isIncrementablePlatform3 = NO;
+                                 }
                              }
                              else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed4.origin.x) &&
-                                 (frameDoodler.origin.x < framePlatformSimpleRed4.origin.x + widthPlatform - 10) &&
+                                      (frameDoodler.origin.x < framePlatformSimpleRed4.origin.x + widthPlatform - 10) &&
                                       (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed4.origin.y)) {
                                  frameDoodler.origin.y = framePlatformSimpleRed4.origin.y - 55;
+                                 NSLog(@"IsIncrementable1: @%d",isIncrementablePlatform1);
+                                 if (isIncrementablePlatform4 && [_labelWin isHidden]) {
+                                     _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                     isIncrementablePlatform4 = NO;
+                                 }
                              }
                              else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed5.origin.x) &&
-                                 (frameDoodler.origin.x < framePlatformSimpleRed5.origin.x + widthPlatform - 10) &&
+                                      (frameDoodler.origin.x < framePlatformSimpleRed5.origin.x + widthPlatform - 10) &&
                                       (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed5.origin.y)) {
                                  frameDoodler.origin.y = framePlatformSimpleRed5.origin.y - 55;
-                                // NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                 if (isIncrementablePlatform5 && [_labelWin isHidden]) {
+                                     _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                     isIncrementablePlatform5 = NO;
+                                 }
+                                 // NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                              }
                              else{
                                  while (frameDoodler.origin.y < 575) {
@@ -186,31 +280,51 @@ int counterLevel = 0;
                                          (frameDoodler.origin.x < framePlatformSimpleRed1.origin.x + widthPlatform - 10) &&
                                          (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed1.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed1.origin.y - 55;
+                                         if (isIncrementablePlatform1 && [_labelWin isHidden]) {
+                                             _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                             isIncrementablePlatform1 = NO;
+                                         }
                                      }
                                      else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed2.origin.x) &&
                                               (frameDoodler.origin.x < framePlatformSimpleRed2.origin.x + widthPlatform - 10) &&
                                               (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed2.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed2.origin.y - 55;
+                                         if (isIncrementablePlatform2 && [_labelWin isHidden]) {
+                                             _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                             isIncrementablePlatform2 = NO;
+                                         }
                                      }
                                      else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed3.origin.x) &&
                                               (frameDoodler.origin.x < framePlatformSimpleRed3.origin.x + widthPlatform - 10) &&
                                               (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed3.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed3.origin.y - 55;
+                                         if (isIncrementablePlatform3 && [_labelWin isHidden]) {
+                                             _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                             isIncrementablePlatform3 = NO;
+                                         }
                                      }
                                      else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed4.origin.x) &&
                                               (frameDoodler.origin.x < framePlatformSimpleRed4.origin.x + widthPlatform - 10) &&
                                               (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed4.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed4.origin.y - 55;
+                                         if (isIncrementablePlatform4 && [_labelWin isHidden]) {
+                                             _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                             isIncrementablePlatform4 = NO;
+                                         }
                                      }
                                      else if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed5.origin.x) &&
                                               (frameDoodler.origin.x < framePlatformSimpleRed5.origin.x + widthPlatform - 10) &&
                                               (frameDoodler.origin.y + heightDoodler < framePlatformSimpleRed5.origin.y)) {
                                          frameDoodler.origin.y = framePlatformSimpleRed5.origin.y - 55;
-                                   //      NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                         if (isIncrementablePlatform5 && [_labelWin isHidden]) {
+                                             _labelScore.text = [NSString stringWithFormat:@"%ld", (long)([_labelScore.text integerValue] + 10)];
+                                             isIncrementablePlatform5 = NO;
+                                         }
+                                         //      NSLog(@"Platform5- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                                      }
                                      else{
                                          frameDoodler.origin.y += 300;
-                                      //   NSLog(@"Falling- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
+                                         //   NSLog(@"Falling- X: @%f, Y: @%f", frameDoodler.origin.x + heightDoodler, frameDoodler.origin.y);
                                      }
                                  }
                              }
@@ -221,52 +335,52 @@ int counterLevel = 0;
 }
 
 -(void)moveLeftRight:timer{
-    if (counterForHidingDoodler == 5) {
-        [_imageDoodler setHidden:NO];
-        counterForHidingDoodler = 0;
-    }
+    //    if (counterForHidingDoodler == 5) {
+    //        [_imageDoodler setHidden:NO];
+    //        counterForHidingDoodler = 0;
+    //    }
     [UIView animateWithDuration:0.5 animations:^{
         CGRect imageFrame = self.imageDoodler.frame;
         if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
             imageFrame.origin.x = _slider.value * 327;
         }
-      //  NSLog(@"Slider out: @%f, X: @%f", _slider.value, imageFrame.origin.x);
-
-//        if (163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity) >= 0 && 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity) <= 327) {
-//            if (_slider.value == 0.5) {
-//                imageFrame.origin.x = 163.5;
-//            }
-//            else if(_slider.value < 0.5) {
-//                imageFrame.origin.x = 163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity);
-//                NSLog(@"Slider Left: @%f, X: @%f", _slider.value, imageFrame.origin.x);
-//            }
-//            else if(_slider.value > 0.5) {
-//                imageFrame.origin.x = 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity);
-//                NSLog(@"Slider Right: @%f,X: @%f", _slider.value, imageFrame.origin.x);
-//
-//            }
-//        }
-
-//        if (imageFrame.origin.x < 0) {
-//            imageFrame.origin.x = 300;
-//            [_imageDoodler setHidden:YES];
-//        }
-//        self.imageDoodler.frame = imageFrame;
-//        if ([_imageDoodler isHidden]) {
-//            counterForHidingDoodler++;
-//        }
-
+        //  NSLog(@"Slider out: @%f, X: @%f", _slider.value, imageFrame.origin.x);
+        
+        //        if (163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity) >= 0 && 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity) <= 327) {
+        //            if (_slider.value == 0.5) {
+        //                imageFrame.origin.x = 163.5;
+        //            }
+        //            else if(_slider.value < 0.5) {
+        //                imageFrame.origin.x = 163.5 - ((0.5 - _slider.value) * 327 * sliderSensitivity);
+        //                NSLog(@"Slider Left: @%f, X: @%f", _slider.value, imageFrame.origin.x);
+        //            }
+        //            else if(_slider.value > 0.5) {
+        //                imageFrame.origin.x = 163.5 + ((_slider.value - 0.5) * 327 * sliderSensitivity);
+        //                NSLog(@"Slider Right: @%f,X: @%f", _slider.value, imageFrame.origin.x);
+        //
+        //            }
+        //        }
+        
+        //        if (imageFrame.origin.x < 0) {
+        //            imageFrame.origin.x = 300;
+        //            [_imageDoodler setHidden:YES];
+        //        }
+        //        self.imageDoodler.frame = imageFrame;
+        //        if ([_imageDoodler isHidden]) {
+        //            counterForHidingDoodler++;
+        //        }
         
         
-//         if (imageFrame.origin.x >= 275) {
-//            NSLog(@"Greater than right.........");
-//            imageFrame.origin.x = 0 * 327;
-//        }
-//        else if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
-//            imageFrame.origin.x = _slider.value * 327;
-//        }
-
-//        NSLog(@"MoveRightLeft- Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
+        
+        //         if (imageFrame.origin.x >= 275) {
+        //            NSLog(@"Greater than right.........");
+        //            imageFrame.origin.x = 0 * 327;
+        //        }
+        //        else if (imageFrame.origin.x >= 0 && imageFrame.origin.x <= 327) {
+        //            imageFrame.origin.x = _slider.value * 327;
+        //        }
+        
+        //        NSLog(@"MoveRightLeft- Slider value: @%f, Doodler value: @%f", _slider.value, _slider.value * 327);
         self.imageDoodler.frame = imageFrame;
     }];
 }

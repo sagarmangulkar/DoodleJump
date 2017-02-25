@@ -20,5 +20,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonPlayAgain;
 @property (strong, nonatomic) IBOutlet UILabel *labelWin;
 @property (strong, nonatomic) IBOutlet UIImageView *imageMonster1;
+@property (strong, nonatomic) IBOutlet UILabel *labelScore;
+@property (strong, nonatomic) IBOutlet UILabel *labelYourScore;
+@property (strong, nonatomic) IBOutlet UILabel *labelDisplayScore;
+@property (strong, nonatomic) IBOutlet UILabel *labelMaxScore;
+@property (retain, nonatomic) NSString *maxScore;
 
 @end
