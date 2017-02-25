@@ -224,7 +224,7 @@ BOOL isPaused = NO;
                 CGRect framePlatformSimpleRed1 = self.platformSimpleRed1.frame;
                 
                 //winning check
-                if (counterLevel >= 3) {
+                if (counterLevel >= 5) {
                     [_labelWin setHidden:NO];
                     [_buttonPlayAgain setHidden:NO];
                     [_labelYourScore setHidden:NO];
@@ -280,8 +280,9 @@ BOOL isPaused = NO;
         self.imageDoodler.frame = frameDoodler;
     }
                      completion:^(BOOL finished){
-                         [UIView animateWithDuration:0.5 animations:^{
-                             CGRect frameDoodler = self.imageDoodler.frame;
+                     //    [UIView animateWithDuration:0.5 animations:^{
+                         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:0 options:nil animations:^{
+                         CGRect frameDoodler = self.imageDoodler.frame;
                              //                 CGRect framePlatformSimpleRed1 = self.platformSimplwRed1.frame;
                              
                              if ((frameDoodler.origin.x + widthDoodler - 30 > framePlatformSimpleRed1.origin.x) &&
@@ -386,7 +387,7 @@ BOOL isPaused = NO;
                                  }
                              }
                              self.imageDoodler.frame = frameDoodler;
-                         }];
+                         } completion:nil];
                      }
      ];
         }
